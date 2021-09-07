@@ -30,7 +30,7 @@ namespace AdvancedBot.Core
                 CaseSensitiveCommands = false,
                 LogLevel = LogSeverity.Info,
                 BotInviteIsPrivate = true,
-                RepositoryUrl = "https://github.com/svr333/AdvancedBot-Template"
+                RepositoryUrl = "https://github.com/svr333/AudioBandBot"
             });
         }
 
@@ -56,7 +56,7 @@ namespace AdvancedBot.Core
             => Console.WriteLine($"{msg.Source}: {msg.Message}");
 
         private async Task OnReadyAsync()
-            => await _client.SetGameAsync("Being a bot.");
+            => await _client.SetGameAsync("with AudioBand");
 
         private ServiceProvider ConfigureServices()
         {
@@ -68,6 +68,7 @@ namespace AdvancedBot.Core
                 .AddSingleton<GuildAccountService>()
                 .AddSingleton<PaginatorService>()
                 .AddSingleton<CommandPermissionService>()
+                .AddSingleton<SuggestionService>()
                 .BuildServiceProvider();
         }
     }
